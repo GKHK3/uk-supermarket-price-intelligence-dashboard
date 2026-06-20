@@ -4,14 +4,8 @@
  -To remove anomalies filter by prices unit < 100
  */
 
-SELECT*
-FROM aldi
-WHERE 
-    category = 'bakery'
-    AND prices_unit < 100
-ORDER BY prices_unit DESC
-LIMIT 500;
 
-SELECT
- (SELECT AVG(prices_unit) FROM asda WHERE category = 'bakery' AND prices_unit < 100)
-FROM aldi
+SELECT AVG(prices_unit) AS avg_bakery_price
+FROM asda
+WHERE category = 'bakery'
+  AND prices_unit < 100;
