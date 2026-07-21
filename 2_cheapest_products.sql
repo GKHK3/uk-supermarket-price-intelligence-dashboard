@@ -2,20 +2,6 @@
 For the same proudcts, which supermarket is the cheapest? (top 3)
 */
 
-SELECT
-    tesco.product AS product,
-    tesco.prices AS tesco_price,
-    asda.prices AS asda_price,
-    sainsbury.prices AS sainsburys_price
-FROM tesco
-INNER JOIN sainsbury
-    ON tesco.product = sainsbury.product
-    AND tesco.date = sainsbury.date
-INNER JOIN asda
-    ON tesco.product = asda.product
-    AND tesco.date = asda.date
-;
-
 --Tesco avg
 WITH tesco_avg AS (
     SELECT
