@@ -1,3 +1,7 @@
+/*
+Where can I get the cheapest Sirloin steak?
+*/
+
 SELECT 
  supermarket,
  product,
@@ -44,3 +48,7 @@ SELECT
  ORDER BY prices_unit ASC
 
  LIMIT 500;
+
+
+
+
