@@ -13,8 +13,8 @@ ORDER BY prices_unit ASC;
 SELECT 
     product, 
     AVG(prices_unit) AS average_value
-FROM tesco --change supermarket
-WHERE product LIKE ('%Apple%')                --add( AND category = '' )if needed
+FROM morrisons --change supermarket
+WHERE product LIKE ('%Milk%')  AND category = 'drinks'              --add( AND category = '' )if needed
 GROUP BY product
 ORDER BY average_value
 */
@@ -54,7 +54,7 @@ GROUP BY supermarket
 --Morrisons average results
 morrisons_results AS(
 SELECT 
-    (SELECT AVG(prices_unit) FROM morrisons WHERE product = 'Cravendale Filtered Fresh Skimmed Milk Fresher for Longer') +
+    (SELECT AVG(prices_unit) FROM morrisons WHERE product = 'M Organic British Whole Milk 2 Pints') +
     (SELECT AVG(prices_unit) FROM morrisons WHERE product = 'Morrisons Toastie White Bread') +
     (SELECT AVG(prices_unit) FROM morrisons WHERE product = 'Morrisons Savers Small Free Range Eggs') +
     (SELECT AVG(prices_unit) FROM morrisons WHERE product = 'Morrisons British Chicken Breast Fillets') +
