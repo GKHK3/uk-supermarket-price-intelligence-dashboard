@@ -4,8 +4,8 @@
 
 /* query to search for products
 SELECT*
-FROM asda --change supermarket
-WHERE product LIKE '%Penne%'                             --add( AND category = '' )if needed
+FROM morrisons --change supermarket
+WHERE product LIKE '%Milk%' AND category LIKE '%drinks%'                           --add( AND category = '' )if needed
 ORDER BY prices_unit ASC; 
 */
 
@@ -54,7 +54,7 @@ GROUP BY supermarket
 --Morrisons average results
 morrisons_results AS(
 SELECT 
-    (SELECT AVG(prices_unit) FROM morrisons WHERE product = 'Cravendale Filtered Fresh Skimmed Milk Fresher for Longer') +
+    (SELECT AVG(prices_unit) FROM morrisons WHERE product = 'Cravendale Fresher for Longer Skimmed Milk') +
     (SELECT AVG(prices_unit) FROM morrisons WHERE product = 'Morrisons Toastie White Bread') +
     (SELECT AVG(prices_unit) FROM morrisons WHERE product = 'Morrisons Savers Small Free Range Eggs') +
     (SELECT AVG(prices_unit) FROM morrisons WHERE product = 'Morrisons British Chicken Breast Fillets') +
