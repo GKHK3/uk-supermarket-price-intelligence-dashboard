@@ -1,1 +1,0 @@
---Which supermarket has the highest inflation rate per category?
