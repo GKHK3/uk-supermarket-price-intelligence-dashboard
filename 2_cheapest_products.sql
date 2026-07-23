@@ -1,5 +1,5 @@
 /*
-For the same proudcts, which supermarket is the cheapest? (top 3)
+For the same products, which supermarket is the cheapest? (top 3)
 */
 
 --Tesco avg
