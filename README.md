@@ -1,6 +1,6 @@
 # UK Supermarket Price Intelligence Dashboard🍎🛒
 ### Project Overview
-Which UK supermarket is the best for price, inflation, and for you? I dive into the details of the top 5 supermarkets in the UK and uncvover the anwsers. My goal was to identify patterns, compare prices and determine which supermarkets offer the best value. Not only as a whole but to zoom in into sepcifics and anwser questions like, which supermarket is the cheapest for a specific category?
+Which UK supermarket is the best for price, inflation, and for you? I dive into the details of the top 5 supermarkets in the UK and uncvover the anwsers. My goal was to identify patterns, compare prices and determine which supermarkets offer the best value. Not only as a whole but to zoom in into sepcifics and anwser questions like, which supermarket is the cheapest for a specific category? Based off a 2024 Jan - Apr dataset.
 
 ### Business Questions
 - Which supermarket is the **cheapest** per **category**?
