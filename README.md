@@ -44,11 +44,18 @@ Data includes: *product name*s*, *categories*, *prices*, *prices per unit*, *dat
 
 ### Repository Structure 
 
-### How to Run the Project
+## [Q1: Which Supermarket is the Cheapest per Category?](Q1\Q1.md)
+
+For this 
+
+## How to Run the Project
 1. Clone the repository.
 2. Import the CSV files into PostegreSQL.
 3. Run the SQL scripts in the sql/ folder.
 4. Open the Python notebooks for exploratory analysis.
 5. View the Excel and Power BI dashboards for interactive insights.
-### Author 
+
+## Author 
 **GKHK**
+
+**LinkedInn:**

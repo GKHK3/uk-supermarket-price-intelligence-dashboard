@@ -116,3 +116,135 @@ SELECT* FROM tesco_results) AS results
 
  ORDER BY average_price ASC;
 
+
+
+WITH all_supermarkets AS (
+
+    SELECT supermarket, product, date, category, prices, prices_unit FROM aldi
+    UNION ALL
+    SELECT supermarket, product, date, category, prices, prices_unit FROM asda
+    UNION ALL
+    SELECT supermarket, product, date, category, prices, prices_unit FROM morrisons
+    UNION ALL
+    SELECT supermarket, product, date, category, prices, prices_unit FROM sainsbury
+    UNION ALL
+    SELECT supermarket, product, date, category, prices, prices_unit FROM tesco
+),
+
+basket_products AS (
+
+    SELECT *
+    FROM all_supermarkets
+    WHERE product IN (
+
+        -- Milk
+        'Cowbelle British Semi-skimmed Milk 1.7% Fat 6 Pints',
+        'ASDA British Milk Filtered Semi Skimmed 2 Litres',
+        'M Organic British Whole Milk 2 Pints',
+        'Sainsbury''s British Semi Skimmed Milk 3.4L (6 pint)',
+        'Tesco British Whole Milk 2.272L, 4 Pints',
+
+        -- Bread
+        'Everyday Essentials Medium Sliced Wholemeal Bread 800g',
+        'JUST ESSENTIALS by ASDA White Bread',
+        'Morrisons Toastie White Bread',
+        'Stamford Street Co. Medium White Bread 800g',
+        'H W Nevill''s White Bread 800G',
+
+        -- Eggs
+        'Everyday Essentials Mixed Weight Scottish Eggs From Bar',
+        'JUST ESSENTIALS by ASDA 15 Eggs',
+        'Morrisons Savers Small Free Range Eggs',
+        'Sainsbury''s Free Range British Eggs Medium x15',
+        'Tesco 15 Eggs',
+
+        -- Chicken
+        'Everyday Essentials Chicken Breast Fillets 1kg',
+        'JUST ESSENTIALS by ASDA Chicken Breast Fillet Portions (Typically 1.05kg)',
+        'Morrisons British Chicken Breast Fillets',
+        'Azeem Halal Chicken Breast Fillets 1kg',
+        'Tesco Chicken Breast Fillet 1Kg',
+
+        -- Rice
+        'Worldwide Long Grain White Rice 1kg',
+        'JUST ESSENTIALS by ASDA Long Grain Rice 1kg',
+        'Island Sun Long Grain Rice',
+        'Stamford Street Co. White Rice 1kg',
+        'Grower Harvest Long Grain Rice 1Kg',
+
+        -- Apples
+        'Nature''s Pick Mini Apples 6 Pack',
+        'ASDA Crisp & Fragrant Russet 6 Apples',
+        'Morrisons Small Sweet Apples',
+        'Stamford Street Co. Mini Apples x6',
+        'Rosedene Farms Small Apple 6 Pack',
+
+        -- Pasta
+        'Everyday Essentials Penne Pasta 500g',
+        'ASDA Penne',
+        'Napolina Penne Pasta',
+        'Sainsbury''s Penne 3kg',
+        'Hearty Food Co. Penne Pasta 500G'
+    )
+),
+
+average_prices AS (
+
+    SELECT
+        supermarket,
+        product,
+        prices,
+        prices_unit,
+        category,
+        date,
+        AVG(prices_unit) AS average_price
+    FROM basket_products
+    GROUP BY supermarket, product, prices, prices_unit, category, date
+),
+
+first_last AS (
+
+    SELECT
+
+        supermarket,
+        product,
+        prices,
+        prices_unit,
+        category,
+
+        FIRST_VALUE(average_price) OVER (
+            PARTITION BY supermarket, product
+            ORDER BY date
+        ) AS first_price,
+
+        LAST_VALUE(average_price) OVER (
+            PARTITION BY supermarket, product
+            ORDER BY date
+            ROWS BETWEEN UNBOUNDED PRECEDING
+            AND UNBOUNDED FOLLOWING
+        ) AS last_price
+
+    FROM average_prices
+)
+
+SELECT DISTINCT
+
+    supermarket,
+    product,
+    prices,
+    prices_unit,
+    category,
+
+    ROUND(first_price,2) AS starting_price,
+    ROUND(last_price,2) AS ending_price,
+
+    ROUND(
+        ((last_price-first_price)/first_price)*100,
+        2
+    ) AS inflation_percent
+
+FROM first_last
+
+ORDER BY
+    supermarket,
+    inflation_percent DESC;
