@@ -44,7 +44,7 @@ Data includes: *product name*s*, *categories*, *prices*, *prices per unit*, *dat
 
 ### Repository Structure 
 
-## [Q1: Which Supermarket is the Cheapest per Category?](Q1\README.md)
+## [Q1: Which Supermarket is the Cheapest per Category?](Q1/Q1.md)
 
 For this 
 
