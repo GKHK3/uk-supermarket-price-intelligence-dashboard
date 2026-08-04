@@ -29,7 +29,9 @@ Contains **5** of the biggest UK supermarket chains:
 
 Data includes: *product name*s*, *categories*, *prices*, *prices per unit*, *dates*, *own-brand*
 ## [Python - Data cleaning](data_cleaning/data_cleaning.md)
+Python was one of tools I used to clean this supermarket dataset. This involved using libaries like numpy and pandas.
 
+*please click the title above to see more details about the code used*
 ## SQL Analysis
 - Product price comparison across supermarkets using UNION ALL
 - Inflation rate calculation using LAG
@@ -38,15 +40,43 @@ Data includes: *product name*s*, *categories*, *prices*, *prices per unit*, *dat
 - Average price comparison by supermarket
 ### Excel Pivot Table Analysis 
 
+
+
 ### Power BI Dashboard
+
+
 
 ### Key Findings 
 
+
+
 ### Repository Structure 
+
+
 
 ## [Q1: Which Supermarket is the Cheapest per Category?](Q1/Q1.md)
 
-For this 
+for
+
+## [Q2: Which supermarket has the cheapest complete basket?]()
+
+ch
+
+## [Q3: Which supermarket has the most product variety]()
+
+w
+
+## [Q4: Which supermarket has the highest inflation rate per category?]()
+
+e
+
+## [Q5: Which category has the highest inflation rate?]()
+
+2
+
+## [Q6: What is the cheapest supermarket?]()
+
+
 
 ## How to Run the Project
 1. Clone the repository.
