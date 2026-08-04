@@ -4,13 +4,6 @@
  -To remove anomalies filter by prices unit < 100
  */
 
-/*test
-SELECT
-   AVG(prices_unit)
-FROM aldi
-WHERE category = 'bakery'
-*/
-
 --Aldi
 SELECT
 --Average category
@@ -24,7 +17,7 @@ SELECT
     ROUND(AVG(CASE WHEN category = 'household' THEN prices_unit END), 2) AS avg_household_price,
     ROUND(AVG(CASE WHEN category = 'pets' THEN prices_unit END), 2) AS avg_pets_price,
 
---total average  
+--overall average price
     ROUND((
         AVG(CASE WHEN category = 'bakery' THEN prices_unit END) +
         AVG(CASE WHEN category = 'drinks' THEN prices_unit END) +
@@ -53,7 +46,7 @@ SELECT
     ROUND(AVG(CASE WHEN category = 'household' THEN prices_unit END), 2),
     ROUND(AVG(CASE WHEN category = 'pets' THEN prices_unit END), 2),
 
---average of every category  
+--overall average price  
     ROUND((
         AVG(CASE WHEN category = 'bakery' THEN prices_unit END) +
         AVG(CASE WHEN category = 'drinks' THEN prices_unit END) +
@@ -82,7 +75,7 @@ SELECT
     ROUND(AVG(CASE WHEN category = 'household' THEN prices_unit END), 2),
     ROUND(AVG(CASE WHEN category = 'pets' THEN prices_unit END), 2),
 
-    --average of every category  
+    --overall average price  
     ROUND((
         AVG(CASE WHEN category = 'bakery' THEN prices_unit END) +
         AVG(CASE WHEN category = 'drinks' THEN prices_unit END) +
@@ -111,7 +104,7 @@ SELECT
     ROUND(AVG(CASE WHEN category = 'household' THEN prices_unit END), 2),
     ROUND(AVG(CASE WHEN category = 'pets' THEN prices_unit END), 2),
 
---average of every category  
+--overall average price 
     ROUND((
         AVG(CASE WHEN category = 'bakery' THEN prices_unit END) +
         AVG(CASE WHEN category = 'drinks' THEN prices_unit END) +
@@ -140,7 +133,7 @@ SELECT
     ROUND(AVG(CASE WHEN category = 'household' THEN prices_unit END), 2),
     ROUND(AVG(CASE WHEN category = 'pets' THEN prices_unit END), 2),
 
---average of every category  
+--overall average price  
     ROUND((
         AVG(CASE WHEN category = 'bakery' THEN prices_unit END) +
         AVG(CASE WHEN category = 'drinks' THEN prices_unit END) +

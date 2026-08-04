@@ -14,12 +14,12 @@ Bonus questions:
 - What supermarket can I buy the cheapest 'Sirloin Steak'?
 - Which supermarket is cheapest for the same product? (Top 3 UK supermarkets based on product variety)
 
-### Tools Used
+## Tools Used
 - **SQL (PostgreSQL):** Data cleaning, concat, joins, aggregations, and inflation calculations
 - **Python (pandas, Numpy, Matplotlib):** Data cleaning, exploratory data analysis and visualizations
 - **Excel:** Pivot tables, pivot charts, and interactive dashboards
 - **Power BI:** Executive dashboard, charts, and presenting insights
-### Dataset
+## Dataset
 Contains **5** of the biggest UK supermarket chains:
 - Aldi
 - ASDA
@@ -28,9 +28,9 @@ Contains **5** of the biggest UK supermarket chains:
 - Tesco
 
 Data includes: *product name*s*, *categories*, *prices*, *prices per unit*, *dates*, *own-brand*
-### Python - Data cleaning
+## [Python - Data cleaning](data_cleaning/data_cleaning.md)
 
-### SQL Analysis
+## SQL Analysis
 - Product price comparison across supermarkets using UNION ALL
 - Inflation rate calculation using LAG
 - Category inflation using advanced CTE's
